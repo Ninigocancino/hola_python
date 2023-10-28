@@ -1,0 +1,19 @@
+Python 3.7.3
+
+
+#Instalar dependeencias de Jupyter
+
+pip install ipykernel
+
+pip install jupyter-core
+
+pip install jupyter-client
+
+pip install notebook
+
+pip install nbconvert
+
+pip install ipython
+
+pip install jupyter
+
