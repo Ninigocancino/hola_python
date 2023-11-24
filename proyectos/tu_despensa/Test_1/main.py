@@ -48,7 +48,7 @@ print("Si la contraseña y el nombre son correctos puedes seguir usando el progr
 
 print("")
 
-nombres_usuario = [["Ramon"], ["Pepe"], ["Jamon"], ["Pecas"]]
+nombres_usuario = [["Ramon"], ["Pepe"], ["Jamon"], ["Pecas"]] #Creamos una lista de listas para poder visualizar en formato tabular las palabras que usaremos en la dinámica de juego
 
 palabaras_contrasenia = [["puerquito"], ["valiente"], ["pato"], ["cocido"]]
 
@@ -57,7 +57,7 @@ print("_" * 80)
 
 print(" " * 45)
 
-print(tabulate(nombres_usuario,headers=["Nombres usuario"],tablefmt="grid"))
+print(tabulate(nombres_usuario,headers=["Nombres usuario"],tablefmt="grid")) #impirmimos las tablas
 
 print("")
 
@@ -148,4 +148,4 @@ else:
 
 #MEJORAR EL PROGRAMA (Lista las siguientes mejoras que necesitan hacerse en el programa):
 
-# 1.- Sería buena idea probar con una persona real el códgio que has creado hasta el momento, para hacer que esta prueba sea algo divertido podrías adaptar el programa para que tenga una dinamica de juego sin que esto afecte la logica que ya has codeado
+# 1.- Evitar que el codigo identifique como incorrectos los datos que ingresa el usuario debido a existencia de tildes o combinación de letras mayúsculas o minúsculas 
