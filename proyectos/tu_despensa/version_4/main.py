@@ -12,10 +12,10 @@
 
 #LÓGICA DEL PROGRAMA:
 
-#Agregamos un poco de estilo al programa para que hacer más agradable lo que el usuario ve en su consola
-
+#importamos las librerias o modulos que se implementarán en el programa
 from tabulate import tabulate
 
+#Agregamos un poco de estilo al programa para que hacer más agradable lo que el usuario ve en su consola
 
 print(" ") #Estás líneas de código generan un espacio vacio en la consola al momento de mostrar contenido al usuario
 
@@ -29,20 +29,20 @@ print((" " * 5),"Vamos a crear tu lista del super, para hacerlo solo tienes que 
 print(" ")
 
 
-#Mostramos en consola la pregunta '¿Qué desas hacer?' y le mostramos dos opciones posibles
+#se imprime el mensaje de la siguiente línea de codigo, para indicar al usuario que debe hacer 
 print("Ingresa tu nombre de usuario y contraseña para crear tu nueva lista")
 
 print(" ")
 
-user = "Ramón Jamón"
+user = "Ramón Jamón" #agregamos una variable que recibe el nombre de un usuario autorizado para usar el programa y establecemos un valor 
 
-contrasenia = "puerquitovaliente"
+contrasenia = "puerquitovaliente" #Agregamos una variable que guarda una contraseña necesaria para ingresar al programa y establecemos un valor
 
-user_name = input("Ingrese su nombre: ")
+user_name = input("Ingrese su nombre: ") #Solicitamos al usuario que ingrese un nombre de usuario que será comparado con el valor establecido (un usuario con acceso)
 
-user_contrasenia = input("Ingrese la contraseña: ")
+user_contrasenia = input("Ingrese la contraseña: ") #Solicitamos al usuario que ingrese la contraseña que compararemos con el valor que se definio como contraseña
 
-if user_name == user and contrasenia == user_contrasenia:
+if user_name == user and contrasenia == user_contrasenia: #Usamos la estructura de control condicional 'if' para validar si la contraseña y el nombre de usuario ingresados por el usuario coinciden con los valores del usario con acceso
 
     while True: #Usamos un ciclo 'while' en 'True' para envolver el código de la versión anterior. 'while True' indica que mientras el código en 'Try' sea cierto el ciclo se continuará ejecutando.
         
@@ -74,13 +74,13 @@ if user_name == user and contrasenia == user_contrasenia:
                 while sig == "si": #Ejecutar un ciclo 'while', donde mientras 'sig' sea exactamente igual a "si" el ciclo while se ejecutara como verdadero y se realizan a su vez las siguientes acciones:
 
                     item = input("¿Qué necesitas comprar?: ") #Se pide al usuario que ingres el nombre del artículo o producto que desea ingresar a la lista, el cuál se almacena en la variable 'item'
-                    productos.append([item]) #Usamos el metodo 'append' para agregar el valor almacenado en 'item' a la lista productos
+                    productos.append([item]) #Usamos el metodo 'append' para agregar el valor almacenado en 'item' como un dato de tipo lista a la lista productos
                     print(" ")
 
                     print("Tu lista:")
                     print(productos) #imprimimos los valores contenidos en la lista 'productos'
 
-                    print(tabulate(productos, headers=["Productos a comprar"], tablefmt="grid"))
+                    print(tabulate(productos, headers=["Productos a comprar"], tablefmt="grid")) #Imprimimos en un formato tabular los items que vayan agregando los usuarios en cada iteración
 
                     print(" ")
                     sig = input("¿Ingresar nuevo item? (si), (no)?:  ") #Preguntamos al usuario si desea ingresar un nuevo artículo y asignamos este nuevo valor a la variable 'sig' para que sea evaluada de nueva cuenta por el 'while'
@@ -103,12 +103,11 @@ if user_name == user and contrasenia == user_contrasenia:
             print("Por favor, ingrese un número válido.") #Se imprime un mensaje que indica al usuario que debe ingresar un número, y la ejecución regresa al 'Try' para recibir una nueva respuesta del usuario
 
 else:
-    print("Lo siento tu usuario o contraseña es incorrecto. Por favor verifica si los datos que haz proporcionado son correctos")
+    print("Lo siento tu usuario o contraseña es incorrecto. Por favor verifica si los datos que haz proporcionado son correctos") #Si la validación de usuario y contraseña es incorrecta se imprime el mensaje de esta línea de código
 
 
 #________________________________________________________________________________________________________
 
 #MEJORAR EL PROGRAMA (Lista las siguientes mejoras que necesitan hacerse en el programa):
 
-# 1.- En la proxima versión el programa debería permitri que solo aquellos usuarios con autorización puedan crear listas en el programa
-# 2.- Mostrar el contenido de la lista creada por el usuario en un formato de tabla.
+# 1.- Sería buena idea probar con una persona real el códgio que has creado hasta el momento, para hacer que esta prueba sea algo divertido podrías adaptar el programa para que tenga una dinamica de juego sin que esto afecte la logica que ya has codeado
