@@ -14,6 +14,7 @@
 
 #importamos las librerias o modulos que se implementarán en el programa
 from tabulate import tabulate
+from utilidades import quitar_tildes
 
 
 #Agregamos un poco de estilo al programa para que hacer más agradable lo que el usuario ve en su consola
@@ -42,6 +43,12 @@ contrasenia = "puerquitovaliente" #Agregamos una variable que guarda una contras
 user_name = input("Ingrese su nombre: ") #Solicitamos al usuario que ingrese un nombre de usuario que será comparado con el valor establecido (un usuario con acceso)
 
 user_name = user_name.upper()
+
+print(user_name)
+
+user_name = quitar_tildes(user_name)
+
+print(user_name)
 
 user_contrasenia = input("Ingrese la contraseña: ") #Solicitamos al usuario que ingrese la contraseña que compararemos con el valor que se definio como contraseña
 
