@@ -42,16 +42,18 @@ contrasenia = "puerquitovaliente" #Agregamos una variable que guarda una contras
 
 user_name = input("Ingrese su nombre: ") #Solicitamos al usuario que ingrese un nombre de usuario que será comparado con el valor establecido (un usuario con acceso)
 
-user_name = user_name.upper()
+user_name = user_name.upper()#Convertimos las letras en mayuscúlas
 
-user_name = quitar_tildes(user_name)
+user_name = quitar_tildes(user_name) #usamos la función 'quitar_tildes' para eliminar las tildes
 
 
 user_contrasenia = input("Ingrese la contraseña: ") #Solicitamos al usuario que ingrese la contraseña que compararemos con el valor que se definio como contraseña
 
-if user_name == user:
 
-    if contrasenia == user_contrasenia:
+#Con respecto a la versión anterior del código; separamos la validación de nombre de usuario y contraseña en dos estructuras 'if'
+if user_name == user: #la primera validación se realiza al nombre de usuario
+
+    if contrasenia == user_contrasenia:#se anida dentro de la primera validación la estructura 'if' que valida la contraseña
 
         while True: #Usamos un ciclo 'while' en 'True' para envolver el código de la versión anterior. 'while True' indica que mientras el código en 'Try' sea cierto el ciclo se continuará ejecutando.
         
@@ -117,7 +119,15 @@ if user_name == user:
                 
                 print("Por favor, ingrese un número válido.") #Se imprime un mensaje que indica al usuario que debe ingresar un número, y la ejecución regresa al 'Try' para recibir una nueva respuesta del usuario
     else:
-        print("Lo siento tu contraseña es incorrecta. por favor ingresa una contraseña valida")
+        print("Lo siento tu contraseña es incorrecta. por favor ingresa una contraseña valida") #Si la validación de contraseña es incorrecta se imprime el mensaje de esta línea de código
 
 else:
-    print("Lo siento tu usuario es incorrecto. Por favor ingresa un nombre de usuario valido") #Si la validación de usuario y contraseña es incorrecta se imprime el mensaje de esta línea de código
+    print("Lo siento tu usuario es incorrecto. Por favor ingresa un nombre de usuario valido") #Si la validación de contraseña es incorrecta se imprime el mensaje de esta línea de código
+
+#________________________________________________________________________________________________________
+
+#MEJORAR EL PROGRAMA (Lista las siguientes mejoras que necesitan hacerse en el programa):
+
+# Se necesita que el programa permita al usuario ingresar la catidad y la unidad de medida de cada item
+# El programa debe permitir dar un nombre a la lista 
+# El programa debe imprimir la fecha de creación de la lista
