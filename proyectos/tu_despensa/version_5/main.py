@@ -44,75 +44,80 @@ user_name = input("Ingrese su nombre: ") #Solicitamos al usuario que ingrese un 
 
 user_name = user_name.upper()
 
-print(user_name)
-
 user_name = quitar_tildes(user_name)
 
-print(user_name)
 
 user_contrasenia = input("Ingrese la contraseña: ") #Solicitamos al usuario que ingrese la contraseña que compararemos con el valor que se definio como contraseña
 
+if user_name == user:
 
+    if contrasenia == user_contrasenia:
 
-if user_name == user and contrasenia == user_contrasenia: #Usamos la estructura de control condicional 'if' para validar si la contraseña y el nombre de usuario ingresados por el usuario coinciden con los valores del usario con acceso
-
-    while True: #Usamos un ciclo 'while' en 'True' para envolver el código de la versión anterior. 'while True' indica que mientras el código en 'Try' sea cierto el ciclo se continuará ejecutando.
+        while True: #Usamos un ciclo 'while' en 'True' para envolver el código de la versión anterior. 'while True' indica que mientras el código en 'Try' sea cierto el ciclo se continuará ejecutando.
         
-        try:
+            try:
             
-            #Mostramos en consola la pregunta '¿Qué desas hacer?' y le mostramos dos opciones posibles
-            print("¿Qué deseas hacer?")
-            print("")
-            print("Ingresa el número 1 para crear una lista")
-            print("Ingresa el número 2 para salir")
+                #Mostramos en consola la pregunta '¿Qué desas hacer?' y le mostramos dos opciones posibles
+                print("¿Qué deseas hacer?")
+                print("")
+                print("Ingresa el número 1 para crear una lista")
+                print("Ingresa el número 2 para salir")
 
-            print(" ")
+                print(" ")
 
-            eleccion = int(input("Ingresa tu eleción: ")) #Solicitamos al usuario que elija una de las opciones dadas, después usamos el metodo 'int' para covertir la respuesta del usuario en un valor numerico que almacenamos en la variable 'eleccion'
+                eleccion = int(input("Ingresa tu eleción: ")) #Solicitamos al usuario que elija una de las opciones dadas, después usamos el metodo 'int' para covertir la respuesta del usuario en un valor numerico que almacenamos en la variable 'eleccion'
             
-            print(" ")
+                print(" ")
 
-            #Usamos un 'if' para controlar el flujo del programa. "Si la variable elección es exactamente igual a 1 el programa debería ejecutar las siguientes instrucciones: "
+                #Usamos un 'if' para controlar el flujo del programa. "Si la variable elección es exactamente igual a 1 el programa debería ejecutar las siguientes instrucciones: "
 
-            if eleccion == 1:
-                productos = [] #Crear una lista vacia y almacenarla en la variable 'productos'
+                if eleccion == 1:
+                    
+                    productos = [] #Crear una lista vacia y almacenarla en la variable 'productos'
 
-                print(" ") #Imprimir un espacio vacio en consola
+                    print(" ") #Imprimir un espacio vacio en consola
 
-                sig = input("¿Listo para ingresar tu primer item? (si), (no): ") #Solicitar el usuario que ingrese en formato string una de las opciones disponibles. (si) para ingresar el primer item, (no) para no realizar la acción mencionada y se almacena la respuesta del usuario en la variable 'sig'.
+                    sig = input("¿Listo para ingresar tu primer item? (si), (no): ") #Solicitar el usuario que ingrese en formato string una de las opciones disponibles. (si) para ingresar el primer item, (no) para no realizar la acción mencionada y se almacena la respuesta del usuario en la variable 'sig'.
 
-                print(" ") #Imprimir un espacio vacio en consola
+                    print(" ") #Imprimir un espacio vacio en consola
 
-                while sig == "si": #Ejecutar un ciclo 'while', donde mientras 'sig' sea exactamente igual a "si" el ciclo while se ejecutara como verdadero y se realizan a su vez las siguientes acciones:
+                    while sig == "si": #Ejecutar un ciclo 'while', donde mientras 'sig' sea exactamente igual a "si" el ciclo while se ejecutara como verdadero y se realizan a su vez las siguientes acciones:
+                        
 
-                    item = input("¿Qué necesitas comprar?: ") #Se pide al usuario que ingres el nombre del artículo o producto que desea ingresar a la lista, el cuál se almacena en la variable 'item'
-                    productos.append([item]) #Usamos el metodo 'append' para agregar el valor almacenado en 'item' como un dato de tipo lista a la lista productos
-                    print(" ")
+                        item = input("¿Qué necesitas comprar?: ") #Se pide al usuario que ingres el nombre del artículo o producto que desea ingresar a la lista, el cuál se almacena en la variable 'item'
+                        productos.append([item]) #Usamos el metodo 'append' para agregar el valor almacenado en 'item' como un dato de tipo lista a la lista productos
+                        print(" ")
 
-                    print("Tu lista:")
-                    print(productos) #imprimimos los valores contenidos en la lista 'productos'
+                        print("Tu lista:")
+                        print(productos) #imprimimos los valores contenidos en la lista 'productos'
 
-                    print(tabulate(productos, headers=["Productos a comprar"], tablefmt="grid")) #Imprimimos en un formato tabular los items que vayan agregando los usuarios en cada iteración
+                        print(tabulate(productos, headers=["Productos a comprar"], tablefmt="grid")) #Imprimimos en un formato tabular los items que vayan agregando los usuarios en cada iteración
 
-                    print(" ")
-                    sig = input("¿Ingresar nuevo item? (si), (no)?:  ") #Preguntamos al usuario si desea ingresar un nuevo artículo y asignamos este nuevo valor a la variable 'sig' para que sea evaluada de nueva cuenta por el 'while'
+                        print(" ")
+                        sig = input("¿Ingresar nuevo item? (si), (no)?:  ") #Preguntamos al usuario si desea ingresar un nuevo artículo y asignamos este nuevo valor a la variable 'sig' para que sea evaluada de nueva cuenta por el 'while'
 
 
-                    #Agregamos un nuevo 'if' que permite detener el ciclo si el último valor de 'sig' es exactamente igual a "no"
-                    if sig == "no":
-                        print("Nos vemos en tu proxima lista")
-                        exit()
-                        break
+                        #Agregamos un nuevo 'if' que permite detener el ciclo si el último valor de 'sig' es exactamente igual a "no"
+                        if sig == "no":
+                            
+                            print("Nos vemos en tu proxima lista")
+                            exit()
+                            break
 
-            elif eleccion == 2: #En caso de que la variable 'eleccion' sea exactamente igual a 2, se ejecutan las siguientes acciones:
-                print("Hasta luego, nos vemos en tu proxima lista") #Se imprime en consola un mensaje de despedida 
-                exit() #Se cierra el programa
-            else:
-                print("ingresa una opción valida") #Si en la primera ejecución de la variable 'eleccion' (que pregunta al usuario que desea hacer) se ingresa un valor numérico diferente a 1 o 2, el programa indica al usuario que necesita ingresar un valor valido y cierra el programa 
+                elif eleccion == 2: #En caso de que la variable 'eleccion' sea exactamente igual a 2, se ejecutan las siguientes acciones:
+                    
+                    print("Hasta luego, nos vemos en tu proxima lista") #Se imprime en consola un mensaje de despedida 
+                    exit() #Se cierra el programa
+                else:
+                    
+                    print("ingresa una opción valida") #Si en la primera ejecución de la variable 'eleccion' (que pregunta al usuario que desea hacer) se ingresa un valor numérico diferente a 1 o 2, el programa indica al usuario que necesita ingresar un valor valido y cierra el programa 
 
-        #Usamos una excepción de error, que se ejecuta cuando el 'Try' es falso, en este caso; cuando el 'input' en 'eleccion' no es un numero entero o 'int'
-        except ValueError:
-            print("Por favor, ingrese un número válido.") #Se imprime un mensaje que indica al usuario que debe ingresar un número, y la ejecución regresa al 'Try' para recibir una nueva respuesta del usuario
+            #Usamos una excepción de error, que se ejecuta cuando el 'Try' es falso, en este caso; cuando el 'input' en 'eleccion' no es un numero entero o 'int'
+            except ValueError:
+                
+                print("Por favor, ingrese un número válido.") #Se imprime un mensaje que indica al usuario que debe ingresar un número, y la ejecución regresa al 'Try' para recibir una nueva respuesta del usuario
+    else:
+        print("Lo siento tu contraseña es incorrecta. por favor ingresa una contraseña valida")
 
 else:
-    print("Lo siento tu usuario o contraseña es incorrecto. Por favor verifica si los datos que haz proporcionado son correctos") #Si la validación de usuario y contraseña es incorrecta se imprime el mensaje de esta línea de código
+    print("Lo siento tu usuario es incorrecto. Por favor ingresa un nombre de usuario valido") #Si la validación de usuario y contraseña es incorrecta se imprime el mensaje de esta línea de código
