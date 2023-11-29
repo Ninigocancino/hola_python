@@ -15,7 +15,7 @@
 #importamos las librerias o modulos que se implementarán en el programa
 from tabulate import tabulate
 from utilidades import quitar_tildes
-from datetime import datetime
+from datetime import datetime #Permite trabajar con series de tiempo
 
 
 #Agregamos un poco de estilo al programa para que hacer más agradable lo que el usuario ve en su consola
@@ -83,8 +83,8 @@ if user_name == user: #la primera validación se realiza al nombre de usuario
                     sig = input("¿Listo para ingresar tu primer item? (si), (no): ") #Solicitar el usuario que ingrese en formato string una de las opciones disponibles. (si) para ingresar el primer item, (no) para no realizar la acción mencionada y se almacena la respuesta del usuario en la variable 'sig'.
 
                     if sig == "si":
-                        nombre_lista = input("Agreguemos un nombre a tu lista: ")
-                        fecha_creacion = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                        nombre_lista = input("Agreguemos un nombre a tu lista: ") #Permite al usuario dar un nombre a la lista que está por crear
+                        fecha_creacion = datetime.now().strftime("%Y-%m-%d %H:%M:%S") #Trae la fecha del día y la guarda en la variable 'fecha_creacion
 
                     print(" ") #Imprimir un espacio vacio en consola
 
@@ -94,8 +94,8 @@ if user_name == user: #la primera validación se realiza al nombre de usuario
                         item = input("¿Qué necesitas comprar?: ") #Se pide al usuario que ingres el nombre del artículo o producto que desea ingresar a la lista, el cuál se almacena en la variable 'item'
 
     
-                        cantidad = input("¿Qué cantidad o volumen necesitas?:  ")
-                        unidad = input("¿Cuál es la unidad de medida a usar (pieza, kilo, litro, etc)?:  ")
+                        cantidad = input("¿Qué cantidad o volumen necesitas?:  ") #Pide al usuario que agregue la catidad que necesita comprar de un item
+                        unidad = input("¿Cuál es la unidad de medida a usar (pieza, kilo, litro, etc)?:  ") #Pide al usuario que agregue la inudad medida del item
 
                         productos.append([item, cantidad, unidad]) #Usamos el metodo 'append' para agregar el valor almacenado en 'item' como un dato de tipo lista a la lista productos
 
@@ -104,14 +104,14 @@ if user_name == user: #la primera validación se realiza al nombre de usuario
                         print("Tu lista:")
                         print(productos) #imprimimos los valores contenidos en la lista 'productos'
 
-                        lista_compras = (tabulate(productos, headers=["Productos a comprar", "Cantidad", "Tipo de unidad"], tablefmt="grid")) #Imprimimos en un formato tabular los items que vayan agregando los usuarios en cada iteración
+                        lista_compras = (tabulate(productos, headers=["Productos a comprar", "Cantidad", "Tipo de unidad"], tablefmt="grid")) #Imprimimos en un formato tabular los items que vayan agregando los usuarios en cada iteración, incluyendo los encabezados de la tabla
 
                         print(" ")
+                        print("-"*80) #Se paración de los textos mostrados en pantalla
+                        print(nombre_lista) #Se impirme en pantalla como titulo el valor guarado en la variable
                         print("-"*80)
-                        print(nombre_lista)
-                        print("-"*80)
-                        print(fecha_creacion)
-                        print(lista_compras)
+                        print(fecha_creacion) #Muestra en pantalla la fecha decreación de la lista
+                        print(lista_compras) #Imprime la tabla con los items agregados y los encabezados
 
                         print(" ")
                         sig = input("¿Ingresar nuevo item? (si), (no)?:  ") #Preguntamos al usuario si desea ingresar un nuevo artículo y asignamos este nuevo valor a la variable 'sig' para que sea evaluada de nueva cuenta por el 'while'
@@ -145,6 +145,4 @@ else:
 
 #MEJORAR EL PROGRAMA (Lista las siguientes mejoras que necesitan hacerse en el programa):
 
-# Se necesita que el programa permita al usuario ingresar la catidad y la unidad de medida de cada item
-# El programa debe permitir dar un nombre a la lista 
-# El programa debe imprimir la fecha de creación de la lista
+# El programa debería guardar los registros en alguna clase de base de datos para poder ser consultados en otras sesiones
