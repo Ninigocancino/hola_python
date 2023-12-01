@@ -12,10 +12,10 @@
 #LÓGICA DEL PROGRAMA:
 
 #importamos las librerias o modulos que se implementarán en el programa
-from tabulate import tabulate
-from utilidades import quitar_tildes
+from tabulate import tabulate #Permite trabajar con tablas en el programa
+from utilidades import quitar_tildes #Importa una funcionalidad (modulo) especifica que hemos creado y hemos guardado el fichero 'utilidades'
 from datetime import datetime #Permite trabajar con series de tiempo
-import csv
+import csv #Permite trabajar con archivos separados por coma
 
 
 #Agregamos un poco de estilo al programa para que hacer más agradable lo que el usuario ve en su consola
@@ -121,20 +121,25 @@ if user_name == user: #la primera validación se realiza al nombre de usuario
                         if sig == "no":
                             
                             print("Nos vemos en tu proxima lista")
-                            nombre_archivo = nombre_lista + ".csv"
+
+                            nombre_archivo = nombre_lista + ".csv" #Asignamos el nombre de la lista a una nueva variable y le agregamos el string ".csv" que lo convierte en la extensión deseada para guardar los datos de la lista creada en el programa
                             item_col = item
                             cantidad_col = cantidad
                             unidad_col = unidad
                             #print(nombre_archivo + item_col + cantidad_col + unidad_col)
 
-                            if nombre_archivo:
-                                def crear_lista(articulo,cantidad, unidad, lista):
-                                    with open(lista, 'a', newline='') as archivo:
-                                        escritor = csv.writer(archivo)
-                                        escritor.writerow([articulo, cantidad, unidad])
+                            if nombre_archivo: #Si la variable 'nombre_archivo' no esta vacia se ejecuta la función 'crear_lista'
+                                def crear_lista(articulo,cantidad, unidad, lista): #Se declara la función y se le pasa los argumentos correspondientes, en este caso los datos agregados por el usuario a traves de 'input'
 
-                                crear_lista(item_col, cantidad_col, unidad_col, nombre_archivo)
-                                print(f"(se ha creado la lista {nombre_archivo})")
+                                    #Convierte los datos de lista ingresados por el usuario en una archivo '.csv'
+                                    #Asigna el nombre de la lista designado por el usuario como el nombre del archivo y lo guarda en eldirectorio donde se encuentra el archivo 'main.py'
+
+                                    with open(lista, 'a', newline='') as archivo: #Indicamos a la función que abra un archivo en modo escritura, donde 'lista' es la variable que contiene el nombre del archivo y el archivo se referencia con el nombre 'archivo' 
+                                        escritor = csv.writer(archivo) #Undica que se escriba una entrada en el archivo creado
+                                        escritor.writerow([articulo, cantidad, unidad]) #Escribe los encabezados de las columnas
+
+                                crear_lista(item_col, cantidad_col, unidad_col, nombre_archivo) #Se llama a la función y se pasan los valores deseados
+                                print(f"(se ha creado la lista {nombre_archivo})")#Informa al usuario que el archivo fue creado
 
                             exit()
                             break
