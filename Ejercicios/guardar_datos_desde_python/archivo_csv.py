@@ -1,6 +1,7 @@
 #------------------------------------Guardar datos en CSV usando python----------------------------------
 
-#Ejemplo 01: Como convertir datos ingresados desde el usuario a través de input
+"""
+#Caso 01: Como convertir datos ingresados desde el usuario a través de input
 
 import csv #Importar la libreria CSV
 
@@ -19,6 +20,40 @@ with open("alumnos.csv", "w", newline="") as archivo_csv: #Usar 'with open' para
     escritor_csv.writerow([nombre, grupo, genero]) #Volvemos a usar el metodo '.writerow' en 'escritor_csv' para agregar los valores de las variables 'nombre', 'grupo' y 'genero' por debajo de la fila del encabezado
 
     archivo_csv.close() #Usamos el metodo '.close' para cerrar el programa después de que los datos se escriban
-    
+
+""" 
+
+#Caso 02: agregar más datos al archivo si es necesario
+
+import csv #Importar la libreria CSV
+
+with open('alumnos.csv', 'w', newline='') as archivo_csv:
+    escritor_csv = csv.writer(archivo_csv)
+
+    encabezados = ["Nombre", "Grupo", "Genero"]
+    escritor_csv.writerow(encabezados)
+
+    nombre_al = input("Nombre del alumno: ")
+    grupo_al = input("Grupo del alumno: ")
+    genero_al = input("Genero del alumno: ")
+
+    escritor_csv.writerow([nombre_al,grupo_al, genero_al])
+
+    print("Se agrego una nueva fila con datos al archivo")
+
+    while True:
+        p = input("¿Deseas agregar más datos? (si)/(no)")
+
+        p = p.lower()
+
+        if p == "si":
+            nombre_al = input("Nombre del alumno: ")
+            grupo_al = input("Grupo del alumno: ")
+            genero_al = input("Genero del alumno: ")
+
+            escritor_csv.writerow([nombre_al,grupo_al, genero_al])
+            print("Se agrego una nueva fila con datos al archivo")
+        else:
+            break
 
 
