@@ -1,9 +1,11 @@
 #------------------------------------Guardar datos en CSV usando python----------------------------------
 
+import csv #Importar la libreria CSV
+
+
 """
 #Caso 01: Como convertir datos ingresados desde el usuario a través de input
 
-import csv #Importar la libreria CSV
 
 with open("alumnos.csv", "w", newline="") as archivo_csv: #Usar 'with open' para abrir un archivo csv con permisos de escritura. Donde 'alumnos.csv' será el nombre del archivo, 'w' indica el permiso de escritura y 'newline=""' permnite crear una nueva linea en el archivo
     escritor_csv = csv.writer(archivo_csv) # Se asigna a la variable 'escritor_csv' los permisos para escribir valores en el archivo
@@ -23,9 +25,11 @@ with open("alumnos.csv", "w", newline="") as archivo_csv: #Usar 'with open' para
 
 """ 
 
+
+"""
 #Caso 02: agregar más datos al archivo si es necesario
 
-import csv #Importar la libreria CSV
+
 
 with open('alumnos.csv', 'w', newline='') as archivo_csv:
     escritor_csv = csv.writer(archivo_csv)
@@ -55,5 +59,39 @@ with open('alumnos.csv', 'w', newline='') as archivo_csv:
             print("Se agrego una nueva fila con datos al archivo")
         else:
             break
+
+"""
+
+#Caso 03: además de la lógica anterior;permitirle  al usuario darle un nombre al archivo que guardará los datos que ingrese
+
+nombre_archivo = input("Ingresa el nombre del archivo: ")
+
+nombre_archivo = nombre_archivo + ".csv"
+
+with open(nombre_archivo, 'w', newline='') as archivo_csv:
+    escritor_csv = csv.writer(archivo_csv)
+
+    encabezados = ["Nombre", "Grupo", "Genero"]
+
+    escritor_csv.writerow(encabezados)
+
+    while True:
+        nombre_al = input("Nombre del alumno: ")
+        grupo_al = input("Grupo del alumno: ")
+        genero_al = input("Genero del alumno: ")
+
+        escritor_csv.writerow([nombre_al,grupo_al,genero_al])
+
+        print("Se agrego una nueva línea de datos")
+
+        eleccion = input("¿Deseas agregar más datos? s/n: ").lower()
+
+        if eleccion != "s":
+            break
+
+    archivo_csv.close()
+
+
+
 
 
