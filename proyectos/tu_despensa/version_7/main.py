@@ -83,66 +83,57 @@ if user_name == user: #la primera validación se realiza al nombre de usuario
                     sig = input("¿Listo para ingresar tu primer item? (si), (no): ") #Solicitar el usuario que ingrese en formato string una de las opciones disponibles. (si) para ingresar el primer item, (no) para no realizar la acción mencionada y se almacena la respuesta del usuario en la variable 'sig'.
 
                     if sig == "si":
-                        nombre_lista = input("Agreguemos un nombre a tu lista: ") #Permite al usuario dar un nombre a la lista que está por crear
+                        nombre_lista = input("Agreguemos un nombre a tu lista: ") + ".csv" #Permite al usuario dar un nombre a la lista que está por crear
                         fecha_creacion = datetime.now().strftime("%Y-%m-%d %H:%M:%S") #Trae la fecha del día y la guarda en la variable 'fecha_creacion
+                    
+                    with open(nombre_lista, 'a', newline='') as archivo_csv: #Indicamos a la función que abra un archivo en modo escritura, donde 'lista' es la variable que contiene el nombre del archivo y el archivo se referencia con el nombre 'archivo'
 
-                    print(" ") #Imprimir un espacio vacio en consola
+                        escritor_csv = csv.writer(archivo_csv) #Undica que se escriba una entrada en el archivo creado
 
-                    while sig == "si": #Ejecutar un ciclo 'while', donde mientras 'sig' sea exactamente igual a "si" el ciclo while se ejecutara como verdadero y se realizan a su vez las siguientes acciones:
-                        
+                        encabezados = ["Productos a comprar", "Cantidad", "Tipo de unidad"]
 
-                        item = input("¿Qué necesitas comprar?: ") #Se pide al usuario que ingres el nombre del artículo o producto que desea ingresar a la lista, el cuál se almacena en la variable 'item'
-
-    
-                        cantidad = input("¿Qué cantidad o volumen necesitas?:  ") #Pide al usuario que agregue la catidad que necesita comprar de un item
-                        unidad = input("¿Cuál es la unidad de medida a usar (pieza, kilo, litro, etc)?:  ") #Pide al usuario que agregue la inudad medida del item
-
-                        productos.append([item, cantidad, unidad]) #Usamos el metodo 'append' para agregar el valor almacenado en 'item' como un dato de tipo lista a la lista productos
-
-                        print(" ")
-
-                        print("Tu lista:")
-                        print(productos) #imprimimos los valores contenidos en la lista 'productos'
-
-                        lista_compras = (tabulate(productos, headers=["Productos a comprar", "Cantidad", "Tipo de unidad"], tablefmt="grid")) #Imprimimos en un formato tabular los items que vayan agregando los usuarios en cada iteración, incluyendo los encabezados de la tabla
-
-                        print(" ")
-                        print("-"*80) #Se paración de los textos mostrados en pantalla
-                        print(nombre_lista) #Se impirme en pantalla como titulo el valor guarado en la variable
-                        print("-"*80)
-                        print(fecha_creacion) #Muestra en pantalla la fecha decreación de la lista
-                        print(lista_compras) #Imprime la tabla con los items agregados y los encabezados
-
-                        print(" ")
-                        sig = input("¿Ingresar nuevo item? (si), (no)?:  ") #Preguntamos al usuario si desea ingresar un nuevo artículo y asignamos este nuevo valor a la variable 'sig' para que sea evaluada de nueva cuenta por el 'while'
+                        escritor_csv.writerow(encabezados) #Escribe los encabezados de las columnas
 
 
-                        #Agregamos un nuevo 'if' que permite detener el ciclo si el último valor de 'sig' es exactamente igual a "no"
-                        if sig == "no":
+                        while True:
+
+                            item = input("¿Qué necesitas comprar?: ") #Se pide al usuario que ingres el nombre del artículo o producto que desea ingresar a la lista, el cuál se almacena en la variable 'item'
+
+                            cantidad = input("¿Qué cantidad o volumen necesitas?:  ") #Pide al usuario que agregue la catidad que necesita comprar de un item
                             
-                            print("Nos vemos en tu proxima lista")
+                            unidad = input("¿Cuál es la unidad de medida a usar (pieza, kilo, litro, etc)?:  ") #Pide al usuario que agregue la inudad medida del item
 
-                            nombre_archivo = nombre_lista + ".csv" #Asignamos el nombre de la lista a una nueva variable y le agregamos el string ".csv" que lo convierte en la extensión deseada para guardar los datos de la lista creada en el programa
-                            item_col = item
-                            cantidad_col = cantidad
-                            unidad_col = unidad
-                            #print(nombre_archivo + item_col + cantidad_col + unidad_col)
 
-                            if nombre_archivo: #Si la variable 'nombre_archivo' no esta vacia se ejecuta la función 'crear_lista'
-                                def crear_lista(articulo,cantidad, unidad, lista): #Se declara la función y se le pasa los argumentos correspondientes, en este caso los datos agregados por el usuario a traves de 'input'
+                            escritor_csv.writerow([item,cantidad,unidad])
 
-                                    #Convierte los datos de lista ingresados por el usuario en una archivo '.csv'
-                                    #Asigna el nombre de la lista designado por el usuario como el nombre del archivo y lo guarda en eldirectorio donde se encuentra el archivo 'main.py'
+                            productos.append([item, cantidad, unidad]) #Usamos el metodo 'append' para agregar el valor almacenado en 'item' como un dato de tipo lista a la lista productos
 
-                                    with open(lista, 'a', newline='') as archivo: #Indicamos a la función que abra un archivo en modo escritura, donde 'lista' es la variable que contiene el nombre del archivo y el archivo se referencia con el nombre 'archivo' 
-                                        escritor = csv.writer(archivo) #Undica que se escriba una entrada en el archivo creado
-                                        escritor.writerow([articulo, cantidad, unidad]) #Escribe los encabezados de las columnas
+                            print(" ")
 
-                                crear_lista(item_col, cantidad_col, unidad_col, nombre_archivo) #Se llama a la función y se pasan los valores deseados
-                                print(f"(se ha creado la lista {nombre_archivo})")#Informa al usuario que el archivo fue creado
+                            print("Tu lista:")
+                            print(productos) #imprimimos los valores contenidos en la lista 'productos'
 
-                            exit()
-                            break
+                            lista_compras = (tabulate(productos, headers=["Productos a comprar", "Cantidad", "Tipo de unidad"], tablefmt="grid")) #Imprimimos en un formato tabular los items que vayan agregando los usuarios en cada iteración, incluyendo los encabezados de la tabla
+
+                            print(" ")
+                            print("-"*80) #Se paración de los textos mostrados en pantalla
+                            print(nombre_lista) #Se impirme en pantalla como titulo el valor guarado en la variable
+                            print("-"*80)
+                            print(fecha_creacion) #Muestra en pantalla la fecha decreación de la lista
+                            print(lista_compras) #Imprime la tabla con los items agregados y los encabezados
+
+                            print(f"(se ha creado la lista {nombre_lista})")#Informa al usuario que el archivo fue creado
+
+                            print(" ")
+                        
+                            sig = input("¿Ingresar nuevo item? (si), (no)?:  ") #Preguntamos al usuario si desea ingresar un nuevo artículo y asignamos este nuevo valor a la variable 'sig' para que sea evaluada de nueva cuenta por el 'while'
+
+
+                            #Agregamos un nuevo 'if' que permite detener el ciclo si el último valor de 'sig' es exactamente igual a "no"
+                            if sig == "no":
+                                print("Nos vemos en tu proxima lista")
+                                exit()
+                                break
 
                 elif eleccion == 2: #En caso de que la variable 'eleccion' sea exactamente igual a 2, se ejecutan las siguientes acciones:
                     
