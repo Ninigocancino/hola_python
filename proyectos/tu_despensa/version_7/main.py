@@ -5,7 +5,8 @@
 # Desafío: Ayuda a Ramón a solucionar su problema. Crea un programa que le permita al usuario crear una lista donde pueda escribir las compras que necesita realizar en el super mercado.
 
 # Además de las funcionalidades anteriores el programa ahora debe: 
-# 1.- Guardar los datos de la lista en algún lugar que permita consultarlos en futuras sesiones.
+# 1.- Guardar los datos de la lista (nombre de lista, encabezados, productos listados, unidad de medida y cantidad) en algún lugar que permita consultarlos en futuras sesiones.
+
 
 #________________________________________________________________________________________________________
 
@@ -83,17 +84,24 @@ if user_name == user: #la primera validación se realiza al nombre de usuario
                     sig = input("¿Listo para ingresar tu primer item? (si), (no): ") #Solicitar el usuario que ingrese en formato string una de las opciones disponibles. (si) para ingresar el primer item, (no) para no realizar la acción mencionada y se almacena la respuesta del usuario en la variable 'sig'.
 
                     if sig == "si":
-                        nombre_lista = input("Agreguemos un nombre a tu lista: ") + ".csv" #Permite al usuario dar un nombre a la lista que está por crear
+                        nombre_lista = input("Agreguemos un nombre a tu lista: ") + ".csv" #Permite al usuario dar un nombre a la lista que está por crear. #Agregamos ' + ".csv" ' para que se agregue la extensión del archivo correpondiente y poderlo usar como nombre del archivo csv que se creará para guardar los datos
                         fecha_creacion = datetime.now().strftime("%Y-%m-%d %H:%M:%S") #Trae la fecha del día y la guarda en la variable 'fecha_creacion
+
+                # Como necsitamos guardar los datos ingresados por el usuario en un archivo, en este caso un archivo csv usamos la instrucción 'with open()...' para poder ytilizar la funcionalidad de la librería CSV que importamos previemante:
                     
                     with open(nombre_lista, 'a', newline='') as archivo_csv: #Indicamos a la función que abra un archivo en modo escritura, donde 'lista' es la variable que contiene el nombre del archivo y el archivo se referencia con el nombre 'archivo'
 
-                        escritor_csv = csv.writer(archivo_csv) #Undica que se escriba una entrada en el archivo creado
+                        escritor_csv = csv.writer(archivo_csv) #Indica que se escriba una entrada en el archivo creado
 
-                        encabezados = ["Productos a comprar", "Cantidad", "Tipo de unidad"]
+                        encabezados = ["Productos a comprar", "Cantidad", "Tipo de unidad"] #Queremos que la lista dentro del archivo tenga encabezados, por ello creamos una lista con los valores de cada encabezado
 
-                        escritor_csv.writerow(encabezados) #Escribe los encabezados de las columnas
+                        escritor_csv.writerow(encabezados) #Escribe los encabezados de las columnas en la primer fila
+                
+                # Los usuarios necesitarán ingresar más de un solo artículo en cada lista y cada vez que ingrese datos el programa debería ingresar una nueva fila con los datos nuevos, para ello sustituimos el ciclo ' while == "si" ' por el ciclo 'while True' que permite  repetir la solicitud de datos al usuario las veces que este necesite y escriba una nueva fila con los valores ingresados en cada iteración y no generá conflicto con el resto del código
 
+                # Se colocó las instrucciones que crean el archivo csv y que escriben en él los encabezados fuera del ciclo while para evitar que el encabezado se vuelva a agregar al archivo en cada iteración
+
+                # El código que genra la tabulación de los datos en consola se coloca de bajo de la logica que crea y agrega datos en el archivo csv, así el programa primero ingresa y guarda los datos en el archivo  csv y después imprime en formato de tabla los mismos
 
                         while True:
 
@@ -104,7 +112,7 @@ if user_name == user: #la primera validación se realiza al nombre de usuario
                             unidad = input("¿Cuál es la unidad de medida a usar (pieza, kilo, litro, etc)?:  ") #Pide al usuario que agregue la inudad medida del item
 
 
-                            escritor_csv.writerow([item,cantidad,unidad])
+                            escritor_csv.writerow([item,cantidad,unidad]) #Escribe una nueva fila de datos
 
                             productos.append([item, cantidad, unidad]) #Usamos el metodo 'append' para agregar el valor almacenado en 'item' como un dato de tipo lista a la lista productos
 
@@ -156,4 +164,4 @@ else:
 
 #MEJORAR EL PROGRAMA (Lista las siguientes mejoras que necesitan hacerse en el programa):
 
-# 
+# 1.- El programa debería permitir que cada sesión se puedan guardar listas y que estas listas con datos ingresados por cada sesión se almacenen en un nuevo directorio en una ubicación determindad
