@@ -17,7 +17,7 @@ from tabulate import tabulate #Permite trabajar con tablas en el programa
 from utilidades import quitar_tildes #Importa una funcionalidad (modulo) especifica que hemos creado y hemos guardado el fichero 'utilidades'
 from datetime import datetime #Permite trabajar con series de tiempo
 import csv #Permite trabajar con archivos separados por coma
-
+import os 
 
 #Agregamos un poco de estilo al programa para que hacer más agradable lo que el usuario ve en su consola
 
@@ -37,6 +37,8 @@ print(" ")
 print("Ingresa tu nombre de usuario y contraseña para crear tu nueva lista")
 
 print(" ")
+
+os.mkdir("datos_listas")
 
 user = "RAMON JAMON" #agregamos una variable que recibe el nombre de un usuario autorizado para usar el programa y establecemos un valor 
 
@@ -87,9 +89,11 @@ if user_name == user: #la primera validación se realiza al nombre de usuario
                         nombre_lista = input("Agreguemos un nombre a tu lista: ") + ".csv" #Permite al usuario dar un nombre a la lista que está por crear. #Agregamos ' + ".csv" ' para que se agregue la extensión del archivo correpondiente y poderlo usar como nombre del archivo csv que se creará para guardar los datos
                         fecha_creacion = datetime.now().strftime("%Y-%m-%d %H:%M:%S") #Trae la fecha del día y la guarda en la variable 'fecha_creacion
 
+                    ruta_archivo = os.path.join("datos_listas", nombre_lista)
+
                 # Como necsitamos guardar los datos ingresados por el usuario en un archivo, en este caso un archivo csv usamos la instrucción 'with open()...' para poder ytilizar la funcionalidad de la librería CSV que importamos previemante:
                     
-                    with open(nombre_lista, 'a', newline='') as archivo_csv: #Indicamos a la función que abra un archivo en modo escritura, donde 'lista' es la variable que contiene el nombre del archivo y el archivo se referencia con el nombre 'archivo'
+                    with open(os.path.join("datos_listas", nombre_lista), 'a', newline='') as archivo_csv: #Indicamos a la función que abra un archivo en modo escritura, donde 'lista' es la variable que contiene el nombre del archivo y el archivo se referencia con el nombre 'archivo'
 
                         escritor_csv = csv.writer(archivo_csv) #Indica que se escriba una entrada en el archivo creado
 
