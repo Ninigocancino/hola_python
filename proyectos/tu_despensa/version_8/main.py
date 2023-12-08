@@ -38,7 +38,8 @@ print("Ingresa tu nombre de usuario y contraseña para crear tu nueva lista")
 
 print(" ")
 
-os.mkdir("datos_listas")
+if not os.path.isdir("datos_listas"):
+    os.mkdir("datos_listas")
 
 user = "RAMON JAMON" #agregamos una variable que recibe el nombre de un usuario autorizado para usar el programa y establecemos un valor 
 
