@@ -45,7 +45,8 @@ with open('data_personal.csv', 'w', newline='') as archivo_csv:
     archivo_csv.close()
 """
 
-
+"""
+#El código ahora permite al usuario asignar un nombre al archivo csv
 
 nombre_archivo = input("¿Con qué nombre deseas guardar este archivo?: ")
 
@@ -71,4 +72,36 @@ with open(nombre_archivo, "w", newline='') as archivo_csv:
         if iterador != "s":
             break
 
+            archivo_csv.close()
+
+"""
+
+#El código ahora permite guardar los archivos csv creados por el usuario en un nuevo directorio llamado 'data_personal'
+
+if not os.path.isdir("data_personal"):
+    os.mkdir("data_personal")
+
+nombre_archivo = input("Dale un nombre al archivo: ")
+
+nombre_archivo = nombre_archivo + ".csv"
+
+os.path.join("data_personal", nombre_archivo)
+
+with open(os.path.join("data_personal",nombre_archivo),'w',newline='') as archivo_csv:
+    escritor_csv = csv.writer(archivo_csv)
+
+    encabezado = ["Nombre","Edad","DNI"]
+    escritor_csv.writerow(encabezado)
+
+    while True:
+        nombre = input("Agrega tu nombre: ")
+        edad = input("Agrega tu edad: ")
+        dni = input("Agrega tu DNI: ")
+
+        escritor_csv.writerow([nombre,edad,dni])
+
+        iterador = input("¿Deseas agregar más datos? s/n: ").lower()
+
+        if iterador != "s":
+            break
             archivo_csv.close()
