@@ -62,7 +62,8 @@ with open('alumnos.csv', 'w', newline='') as archivo_csv:
 
 """
 
-#Caso 03: además de la lógica anterior;permitirle  al usuario darle un nombre al archivo que guardará los datos que ingrese
+"""
+#Caso 03: además de la lógica anterior;permitirle al usuario darle un nombre al archivo que guardará los datos que ingrese
 
 nombre_archivo = input("Ingresa el nombre del archivo: ")
 
@@ -90,6 +91,48 @@ with open(nombre_archivo, 'w', newline='') as archivo_csv:
             break
 
     archivo_csv.close()
+
+"""
+
+#Caso 04: además de la lógica anterior; el programa debe ser capaz de guardar los archivos csv creados en una carpeta propia
+
+import os
+
+if not os.path.isdir("Datos_alumnos"):
+    os.mkdir("Datos_alumnos")
+
+
+nombre_archivo = input("Dale un nombre a la tabla: ")
+
+nombre_archivo =nombre_archivo + ".csv"
+
+os.path.join("Datos_alumnos", nombre_archivo)
+
+
+with open(os.path.join("Datos_alumnos", nombre_archivo), 'a', newline='') as archivo_csv:
+    escritor_csv = csv.writer(archivo_csv)
+
+    encabezados = ["Nombre", "Edad", "Grado"]
+    escritor_csv.writerow(encabezados)
+
+    while True:
+        nombre = input("Nombre del alumno: ")
+        edad = input("Ingresa la edad del alumno: ")
+        grado = input("Agrega el grado al que pertenece el alumno: ")
+
+        escritor_csv.writerow([nombre,edad,grado])
+
+        print("Se agregaron nuevos datos")
+
+        eleccion = input("¿Agregar más datos? s/n: ").lower()
+
+        if eleccion != "s":
+            print("No vemos pronto")
+            break
+    
+    archivo_csv.close()
+
+
 
 
 
