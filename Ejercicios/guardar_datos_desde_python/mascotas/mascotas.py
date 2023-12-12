@@ -1,4 +1,5 @@
 import csv
+import os
 
 """
 with open('mascotas.csv', 'w', newline='') as archivo_csv:
@@ -46,6 +47,8 @@ with open('datos_mascotas.csv', 'w', newline='') as archivo_csv:
 
 """
 
+
+"""
 #El código ahora permite al usuario asignar un nombre al archivo csv
 
 nombre_archivo = input("Dale un nombre a tu archivo: ") #nueva línea
@@ -67,6 +70,40 @@ with open(nombre_archivo, "w", newline = '') as archivo_csv:
 
         print("")
         iterador = input("¿Deseas agregar más datos? s/n: ").lower()
+
+        if iterador != "s":
+            break
+            archivo_csv.close()
+
+"""
+
+#El código ahora permite guardar los archivos csv creados por el usuario en un nuevo directorio llamado 'datos_mascotas'
+
+
+
+if not os.path.isdir("datos_mascotas"): #Nueva línea
+    os.mkdir("datos_mascotas")   #Nueva línea
+
+nombre_archivo = input("Dale un nombre a tu archivo: ")
+
+nombre_archivo = nombre_archivo + ".csv"
+
+os.path.join("datos_mascotas",nombre_archivo)  #Nueva línea
+
+with open(os.path.join("datos_mascotas",nombre_archivo), "a",newline='') as archivo_csv: #Línea modificada
+    escritor_csv = csv.writer(archivo_csv)
+
+    encabezado = ["Nombre","Especie", "Edad"]
+    escritor_csv.writerow(encabezado)
+
+    while True:
+        nombre_m = input("¿Cuál es el nombre de tu mascota?: ")
+        especie_m = input("¿A qué especie pertenece tu mascota?: ")
+        edad_m = input("¿Cuántos años tiene tu mascota?: ")
+
+        escritor_csv.writerow([nombre_m,especie_m,edad_m])
+
+        iterador = input("¿Deseas ingresar más datos? s/n: ").lower()
 
         if iterador != "s":
             break
