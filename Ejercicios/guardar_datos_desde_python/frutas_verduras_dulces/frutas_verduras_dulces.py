@@ -21,7 +21,9 @@ with open('frutas_verduras_dulces.csv', 'w', newline='') as archivo_csv:
 
     """
 
-#En la primeraversion de este código solo podías ingresar una nueva línea de datos justo al momento de crear el archivo '.csv'. El código siguiente estabasado en el anterior pero ahora utiliza un ciclo 'while' para iterar el código las veces que el usuario necesite para ingresar tantos datos quiera.
+
+"""
+#En la primera version de este código solo podías ingresar una nueva línea de datos justo al momento de crear el archivo '.csv'. El código siguiente estabasado en el anterior pero ahora utiliza un ciclo 'while' para iterar el código las veces que el usuario necesite para ingresar tantos datos quiera.
 
 
 with open('frut_verd_dulc.csv', 'w',newline='') as archivo_csv:
@@ -44,4 +46,31 @@ with open('frut_verd_dulc.csv', 'w',newline='') as archivo_csv:
 
         if respuesta!= "s":
             break
-    archivo_csv.close()
+            archivo_csv.close()
+
+"""
+
+#El código ahora permite al usuario asignar un nombre al archivo csv
+
+nombre_archivo = input("Dale un nombre a tu archivo: ") #nueva línea en código
+
+nombre_archivo = nombre_archivo + ".csv" #nueva línea en código
+
+with open(nombre_archivo, "a", newline= '') as archivo_csv:
+    archivo_csv = csv.writer(archivo_csv)
+
+    encabezados = ["Fruta", "Verdura", "Dulce"]
+    archivo_csv.writerow(encabezados)
+
+    while True:
+        fruta= input("Agrega una fruta: ")
+        verdura= input("Agrega una verdura: ")
+        dulce= input("Agrega un dulce: ")
+
+        archivo_csv.writerow([fruta,verdura,dulce])
+
+        iterador = input("¿Deseas agregar más datos? s/n: ").lower()
+
+        if iterador != "s":
+            break
+            archivo_csv.close()
