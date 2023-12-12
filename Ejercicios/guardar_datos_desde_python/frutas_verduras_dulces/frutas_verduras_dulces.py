@@ -3,6 +3,7 @@
 #Supon que debes listar nombres de frutas, verduras y dulces ¿cómo guardarias los datos ingresados por el usuario en un archivo CSV? 
 
 import csv
+import os
 
 """
 with open('frutas_verduras_dulces.csv', 'w', newline='') as archivo_csv:
@@ -50,6 +51,9 @@ with open('frut_verd_dulc.csv', 'w',newline='') as archivo_csv:
 
 """
 
+
+"""
+
 #El código ahora permite al usuario asignar un nombre al archivo csv
 
 nombre_archivo = input("Dale un nombre a tu archivo: ") #nueva línea en código
@@ -68,6 +72,38 @@ with open(nombre_archivo, "a", newline= '') as archivo_csv:
         dulce= input("Agrega un dulce: ")
 
         archivo_csv.writerow([fruta,verdura,dulce])
+
+        iterador = input("¿Deseas agregar más datos? s/n: ").lower()
+
+        if iterador != "s":
+            break
+            archivo_csv.close()
+
+"""
+
+#El código ahora permite guardar los archivos csv creados por el usuario en un nuevo directorio llamado 'datos_fvd'
+
+if not os.path.isdir("datos_fvd"): #Nueva línea
+    os.mkdir("datos_fvd") #Nueva línea
+
+nombre_archivo = input("Agrega un nombre para tu archivo: ")
+
+nombre_archivo = nombre_archivo + ".csv"
+
+os.path.join("datos_fvd", nombre_archivo) #Nueva línea
+
+with open(os.path.join("datos_fvd",nombre_archivo),"a", newline='') as archivo_csv: #Línea modificada
+    escritor_csv = csv.writer(archivo_csv)
+
+    encabezados = ["Fruta","Verdura","Dulce"]
+    escritor_csv.writerow(encabezados)
+
+    while True:
+        fruta = input("Agrega una fruta: ")
+        verdura = input("agrega una verdure: ")
+        dulce = input("agrega un dulce: ")
+
+        escritor_csv.writerow([fruta,verdura, dulce])
 
         iterador = input("¿Deseas agregar más datos? s/n: ").lower()
 
