@@ -3,6 +3,7 @@
 #Supon que debes llenar una hoja de registro para un tramite
 
 import csv 
+import os
 
 """
 with open('datos_personales.csv', 'w', newline='')as archivo_csv:
@@ -20,7 +21,7 @@ with open('datos_personales.csv', 'w', newline='')as archivo_csv:
     archivo_csv.close()
 """
 
-
+"""
 with open('data_personal.csv', 'w', newline='') as archivo_csv:
     escritor_csv = csv.writer(archivo_csv)
 
@@ -42,3 +43,32 @@ with open('data_personal.csv', 'w', newline='') as archivo_csv:
             break
 
     archivo_csv.close()
+"""
+
+
+
+nombre_archivo = input("¿Con qué nombre deseas guardar este archivo?: ")
+
+nombre_archivo = nombre_archivo + ".csv"
+
+with open(nombre_archivo, "w", newline='') as archivo_csv:
+    archivo_csv = csv.writer(archivo_csv)
+
+    encabezados = ["Nombre", "Edad", "Promedio"]
+    archivo_csv.writerow(encabezados)
+
+    while True:
+
+        nombre = input("Escribe tu nombre: ")
+        edad = input("Escribe tu edad: ")
+        promedio = input("¿Cuál es tu promedio actual?: ")
+
+        archivo_csv.writerow([nombre,edad,promedio])
+
+        print("")
+        iterador = input("¿Deseas guardar más datos? s/n: ")
+
+        if iterador != "s":
+            break
+
+            archivo_csv.close()
