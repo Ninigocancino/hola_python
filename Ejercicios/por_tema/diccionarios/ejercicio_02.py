@@ -7,4 +7,11 @@ datos_peliculas = {
     "Año_Estreno" : "2009"
 }
 
-print(datos_peliculas)
+#print(datos_peliculas)
+
+
+# Accede al dato "Genero" del diccionario anterior 
+
+dato = datos_peliculas["Genero"]
+
+print(dato)
