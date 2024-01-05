@@ -10,7 +10,18 @@ Al final Luis y Luisa deben contar con la lista de invitados que confirmaron su 
 Genera 10 registros para confirmar que el programa funciona.
 """
 
-print("                             Luis & Luisa                            ")
+print("                                NOS CASAMOS                                ")
 print("")
-
-print("            Quermos que seas parte de nuestro enlace nupcial          ")
+print("                                Luis & Luisa                               ")
+print("")
+print("")
+print("              Y queremos que seas parte de nuestro enlace nupcial          ")
+print("             para nosotros no hay nada más importante que compartir        ")
+print("               con aquellos que son especiales para nosotros este          ")
+print("                maravilloso momento de nuestra vida como pareja            ")
+print("")
+print("               Por lo cuál queremos invitarte a nuestra ceremonia          ")
+print("")
+print("                     La cita es el 05 de febrero de 2024                   ")
+print("             En la capilla del Sagrado Corazón en el parque central        ")
+print("                                A las 11:00 am                             ")
