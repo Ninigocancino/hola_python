@@ -35,5 +35,16 @@ print("                Para confirmar la asistencia ahora ingresar [1]          
 print("                         Para hacerlo después ingresa [2]                  ")
 print("")
 
-confirmacion = int(input("¿Qué deseas hacer?: "))
+eleccion = int(input("¿Qué deseas hacer?: "))
 
+if eleccion == 1:
+    registro= []
+
+    invitado = input("Por favor ingresa tu nombre completo: ")
+    confirmacion = input("¿Confirmas tu asistencia? para sí [s], para no [n]")
+    if confirmacion == "s":
+        print("Gracias por confirmar tu aistencia")
+        registro.append(invitado)
+        print(registro)
+else:
+    print("Esperamos tu confirmación para reservar tu lugar :) ")
