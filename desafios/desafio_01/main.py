@@ -25,3 +25,15 @@ print("")
 print("                     La cita es el 05 de febrero de 2024                   ")
 print("             En la capilla del Sagrado Corazón en el parque central        ")
 print("                                A las 11:00 am                             ")
+
+
+print("                 Para que todo sea perfecto durante la cermonia            ")
+print("                te pedímos que por favor confirmes tu asistencia           ")
+print("")
+print("                     ¿Deseas confirmar tu asistencia ahora?                ")
+print("                Para confirmar la asistencia ahora ingresar [1]            ")
+print("                         Para hacerlo después ingresa [2]                  ")
+print("")
+
+confirmacion = int(input("¿Qué deseas hacer?: "))
+
