@@ -3,3 +3,10 @@
 profesiones = ["Arquitecto","Doctor","Programador","Diseñador","Dentista","Abogado", "Fisico", "Matematico","Deportista","Chef"]
 
 print(profesiones[8])
+
+#Ejercicio 2: de la lista anterior  elige un valor e imprime el indice en el que se encuentra
+
+indice= profesiones.index("Doctor")
+
+print(indice)
+
