@@ -28,6 +28,7 @@ print(ciudades[5])
 
 """
 
+""""
 #Ejercicio 4: Crea una lista con 8 nombre de animales imprime todos los elementos de la lista, luego selecciona el elemento en la posición 7 y usalo para completar el mensaje "Tenemos un .... en la lista"
 
 animales = ["Perro", "Gato", "Cocodrilo", "Tarantula", "Garza","Pato", "Rana", "Mono"]
@@ -39,3 +40,23 @@ print(animales)
 print("")
 
 print(f"Tenemos un {elegido} en la lista")
+
+"""
+
+#Ejercicio 5: Crea una lista A con nombres de personas, una lista B con nombres de comidas y una lista C con conectores de frases, luego imprime el contenido de ambas listas, no olvides incluir un identificador visible en la salida, después deberás elegir un elemento de la lista A,  dos elementos de la lista B y el elemento correspondiente de la lista C para completar el mensaje "A ... le gusta comer ... pero odio ... ..."
+
+lista_A=["Alexandra", "Monica", "Pascual", "Alejandro", "Brenda"]
+
+lista_B=["enchiladas", "tacos","pizza","asado","caldo de pollo", "estofado"]
+
+lista_C = ["el","la", "los","las"]
+
+eleccion_A = lista_A[4]
+
+eleccion_B = lista_B[3]
+
+eleccion_B2 = lista_B[0]
+
+eleccion_C = lista_C[3]
+
+print(f"A {eleccion_A} le gusta comer {eleccion_B}, pero odia {eleccion_C} {eleccion_B2}")
