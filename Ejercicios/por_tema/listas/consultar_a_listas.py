@@ -15,11 +15,20 @@ profesiones = ["Arquitecto","Doctor","Programador","Diseñador","Dentista","Abog
 
 ###print(profesiones[2:8])
 
+#Ejercicio 4: Consulta la extensión de la lista profesiones
+
+extension = len(profesiones)
+
+print(extension)
+
 #Ejercicio 5: De la lista profesiones trae todos los elementos que tengan menos de 5 caracteres
 
+"""
 def filtrar(e):
     return len(e) < 5
 
 resultado = list(filter(filtrar,profesiones))
 
 print(resultado)
+
+"""
