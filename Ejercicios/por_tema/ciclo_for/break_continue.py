@@ -13,3 +13,9 @@ for i in nombres:
     print(i)
 
 
+#Ejercicio 3:
+    
+for i in nombres:
+    if i == "Emilio":
+        continue
+    print(i)
