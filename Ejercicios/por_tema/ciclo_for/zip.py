@@ -12,3 +12,7 @@ nombres_unzip, apellidos_unzip = zip(*nombre_completo)
 print(nombres_unzip)
 print(apellidos_unzip)
 
+#Ejercicio 3: Recorre cada elemento resultante del ejercicio 1
+
+for e,i in zip(nombres,apellidos):
+    print(e,i)
