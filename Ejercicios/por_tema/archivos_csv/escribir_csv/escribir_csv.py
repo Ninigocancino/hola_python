@@ -12,9 +12,9 @@ datos_lista = [
 ]
 
 datos_dict = [
-    {"nombre": "Paco", "Apellido":"Botero", "Edad" :26},
-    {"nombre": "Javier", "Apellido":"Tafur", "Edad" :25},
-    {"nombre": "Emilio", "Apellido":"Quiñonez", "Edad" :24},
+    {"nombre": "Paco", "apellido":"Botero", "edad" :26},
+    {"nombre": "Javier", "apellido":"Tafur", "edad" :25},
+    {"nombre": "Emilio", "apellido":"Quiñonez", "edad" :24},
 ]
 
 """
@@ -32,9 +32,16 @@ with open("datos_2.csv", "w", newline="") as archivo:
 """
 
 #Ejercicio 3 crear un archivo csv con mas de una fila de datos
-
+"""
 with open("datos_3.csv", "w", newline="") as archivo:
     writer = csv.writer(archivo)
     writer.writerow(columnas)
     writer.writerows(datos_lista)
+"""
 
+#Ejercicio 4 crear un archivo csv a partir de datos contenidos en una lista de diccionarios
+    
+with open("datos_4.csv", "w", newline="") as archivo:
+    writer = csv.DictWriter(archivo, fieldnames=columnas)
+    writer.writeheader()
+    writer.writerows(datos_dict)
