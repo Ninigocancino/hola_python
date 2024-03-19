@@ -17,6 +17,16 @@ datos_dict = [
     {"nombre": "Emilio", "Apellido":"Quiñonez", "Edad" :24},
 ]
 
+"""
 archivo = open("datos.csv", "w")
 writer = csv.writer(archivo, delimiter=",")
 archivo.close()
+"""
+
+#Ejercicio 2 crear un archivo csv usando with
+
+with open("datos_2.csv", "w", newline="") as archivo:
+    writer = csv.writer(archivo)
+    writer.writerow(columnas)
+    writer.writerow(dato)
+
