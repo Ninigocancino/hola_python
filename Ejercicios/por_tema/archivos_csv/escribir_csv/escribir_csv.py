@@ -24,9 +24,17 @@ archivo.close()
 """
 
 #Ejercicio 2 crear un archivo csv usando with
-
+"""
 with open("datos_2.csv", "w", newline="") as archivo:
     writer = csv.writer(archivo)
     writer.writerow(columnas)
     writer.writerow(dato)
+"""
+
+#Ejercicio 3 crear un archivo csv con mas de una fila de datos
+
+with open("datos_3.csv", "w", newline="") as archivo:
+    writer = csv.writer(archivo)
+    writer.writerow(columnas)
+    writer.writerows(datos_lista)
 
