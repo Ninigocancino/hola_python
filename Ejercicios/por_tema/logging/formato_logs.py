@@ -48,6 +48,8 @@ logging.critical("Log de error crítico")
 
 #Ejercicio 4: Toma el ejericico anterior y agrega un log de error que imprima el nombre de la persona que genera el error
 
+"""
+
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -60,3 +62,26 @@ logging.error(f"{nombre} creó el error")
 logging.warning("Log de advertencia")
 logging.error("Log de error")
 logging.critical("Log de error crítico")
+
+"""
+
+#Ejercicio 5: Toma el ejercicio anterior y agregale una excepción que imprima un log error al dividir 2 entre 0
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt= "%H:%M:%S"
+)
+
+nombre = "Juan"
+logging.error(f"{nombre} creó el error")
+
+logging.warning("Log de advertencia")
+logging.error("Log de error")
+logging.critical("Log de error crítico")
+
+try:
+    division = 2 / 0
+except:
+    logging.error("Divisón entre 0")
+
