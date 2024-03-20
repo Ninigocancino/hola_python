@@ -67,6 +67,7 @@ logging.critical("Log de error crítico")
 
 #Ejercicio 5: Toma el ejercicio anterior y agregale una excepción que imprima un log error al dividir 2 entre 0
 
+"""
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -85,3 +86,25 @@ try:
 except:
     logging.error("Divisón entre 0")
 
+"""
+
+
+#Ejercicio 6: Toma el ejercicio anterior y ahora haz que la consola muestre más información sobre lo que ocurrer en el bloque de excepción
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt= "%H:%M:%S"
+)
+
+nombre = "Juan"
+logging.error(f"{nombre} creó el error")
+
+logging.warning("Log de advertencia")
+logging.error("Log de error")
+logging.critical("Log de error crítico")
+
+try:
+    division = 2 / 0
+except:
+    logging.exception("Divisón entre 0")
