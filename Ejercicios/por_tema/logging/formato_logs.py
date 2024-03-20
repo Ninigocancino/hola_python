@@ -33,11 +33,29 @@ logging.critical("Log de error crítico")
 
 #Ejercicio 3: Toma el ejericico anterior y cambia el formato en que se imprime la fecha del log para que se imprima la hora, minuto y segundos
 
+"""
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",
     datefmt= "%H:%M:%S"
 )
+
+logging.warning("Log de advertencia")
+logging.error("Log de error")
+logging.critical("Log de error crítico")
+
+"""
+
+#Ejercicio 4: Toma el ejericico anterior y agrega un log de error que imprima el nombre de la persona que genera el error
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt= "%H:%M:%S"
+)
+
+nombre = "Juan"
+logging.error(f"{nombre} creó el error")
 
 logging.warning("Log de advertencia")
 logging.error("Log de error")
