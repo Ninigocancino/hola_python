@@ -1,7 +1,9 @@
 import requests
 
 #Ejercicio 1: haz una etición GET a la API de GitHub e imprime el código de  estado de la petición 
+"""
 response = requests.get("https://api.github.com")
+"""
 
 """
 print(response)
@@ -30,6 +32,16 @@ print(response.content)
 #Forma 2:
 print(response.text)
 """
+"""
 #Forma 3:
 print(response.json()["current_user_url"])
+"""
 
+#Ejercicio 5: Usa un endpoint de github para filtrar información de la petición
+
+response = requests.get(
+    "https://api.github.com/search/repositories",
+    params={"q":"python"}
+)
+
+print(response.status_code)
