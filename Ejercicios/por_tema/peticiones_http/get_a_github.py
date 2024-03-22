@@ -7,3 +7,7 @@ print(response)
 #Ejercicio 2: Trae los headers de la petición 
 
 print(response.headers)
+
+#Ejercicio 3: Muestra el código d eestado de la petición
+
+print(response.status_code) 
