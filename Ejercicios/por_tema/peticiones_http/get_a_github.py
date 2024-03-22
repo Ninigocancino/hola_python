@@ -2,12 +2,34 @@ import requests
 
 #Ejercicio 1: haz una etición GET a la API de GitHub e imprime el código de  estado de la petición 
 response = requests.get("https://api.github.com")
+
+"""
 print(response)
+"""
 
 #Ejercicio 2: Trae los headers de la petición 
 
+"""
 print(response.headers)
+"""
 
 #Ejercicio 3: Muestra el código d eestado de la petición
 
-print(response.status_code) 
+"""
+print(response.status_code)
+"""
+
+#Ejercicio 4: accede al cuerpo de la petición 
+
+"""
+#Forma 1:
+print(response.content)
+"""
+
+"""
+#Forma 2:
+print(response.text)
+"""
+#Forma 3:
+print(response.json()["current_user_url"])
+
