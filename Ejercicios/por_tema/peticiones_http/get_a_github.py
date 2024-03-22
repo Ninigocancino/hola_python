@@ -44,4 +44,11 @@ response = requests.get(
     params={"q":"python"}
 )
 
-print(response.status_code)
+#print(response.status_code)
+
+#Ejercicio 6: accede al cuero de la consulta en formato json y almacena el resultado en una variable
+
+#print(response.json())
+
+data = response.json()
+print(data.keys())
